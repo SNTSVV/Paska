@@ -12,9 +12,9 @@ Example:
 "RQSVV.024";"If System-A has successfully performed all the validation rules, then System-A must set the state of the Settlement Request to “Valid”."
 More examples of requirements can be found in the file "input-requirements.csv" located in the folder "examples/input-requirements".
 
-## Steps to use Paska:
-1. Copy the Python file "get_cparsingtrees.pyc" to your local machine. This file contains preprocessing algorithms, such as the generation of the constituency parsing trees.
-2. Open the command line; within your Python environment, run the following command passing as arguments the input and output folders:
+## Steps to use Paska:  
+1. Copy the Python file "get_cparsingtrees.pyc" to your local machine. This file contains preprocessing algorithms, such as the generation of the constituency parsing trees.  
+2. Open the command line; within your Python environment, run the following command passing as arguments the input and output folders:  
 ```python
 python get_cparsingtrees.pyc <input-folder> <output-folder>
 ```
@@ -22,8 +22,10 @@ For example, you can user our example folders:
 ```python
  python get_cparsingtrees.py "/example/input-requirements/" "/example/parsing-trees/"
 ```
-This step may take some time, depending on the number of requirements. For example, using a computer with 16 GB of ram and a corei7 processor, a file with 190 requirements took approximately 4 minutes.
+This step may take some time, depending on the number of requirements. For example, using a computer with 16 GB of ram and a corei7 processor, a file with 190 requirements took approximately 4 minutes.  
+
 3. You must make sure that you have Java version 1.8 installed. If you have multiple java installations, set Java version 1.8 (JDK) as default.
+  
 4. Once you have generated the parsing trees (Step 2), copy to your local machine the smell-detector.jar file, download the POS tagger model "english-left3words-distsim.tagger" from the following url: https://nlp.stanford.edu/software/tagger.shtml#Download . Open the command line; within your JAVA 8 environment, execute the following command passing as arguments the input, output folders, and the folder containing the POS tagger model:
 ```java
 java -jar smell-detector.jar <input-folder-parsing-trees> <output-folder> <folder-postagger-model>
@@ -31,7 +33,7 @@ java -jar smell-detector.jar <input-folder-parsing-trees> <output-folder> <folde
 For example:
 ```java
 java -jar smell-detector.jar  "/example/parsing-trees/" "/example/output-smells/" "/model/english-left3words-distsim.tagger"
-```
+```  
 5. As a result of Step 4, you will have a csv file containing your requirements along with the detected smells and the suggested Rimay patterns.
 For example, the folder "example/output-smells" contains the file "smell.csv".  This file contains the smells detected and suggested Rimay patterns for the requirement examples stored in the "input-requirements.csv" file in the "example/input-requirements" folder.
 
